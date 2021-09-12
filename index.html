@@ -17,39 +17,40 @@
     </header>
     <main>
         <aside class="left-panel">
-            <div class="color-setting">
-                <fieldset class="color-setting-heading">
-                    <legend>Color Setting</legend>
-                    <div class="colors-schemes">
-                        <span>choose a color scheme</span>
-                        <div class="choose-color">
-                            <label for="greyscale" class="greyscale">Grayscale
-                                <input type="radio" id="greyscale" name="color-scheme">
-                            </label>
-                            <label for="random-colors" class="random-colors">Random color
-                                <input type="radio" id="random-colors" name="color-scheme">
-                            </label>
-                            <label for="color-picker" class="color-picker">color picker
-                                <input type="color" id="" name="color-scheme">
-                            </label>
-                        </div>
+            <fieldset class="color-setting-heading">
+                <legend>Color Setting</legend>
+                <div class="color-setting">
+                        <div class="colors-schemes">
+                            <span>choose a color scheme</span>
+                            <div class="choose-color">
+                                <label for="greyscale" class="greyscale">
+                                    <input type="radio" id="greyscale" name="color-scheme">Grayscale
+                                </label>
+                                <label for="random-colors" class="random-colors">Random color
+                                    <input type="radio" id="random-colors" name="color-scheme">
+                                </label>
+                                <label for="color-picker" class="color-picker">color picker
+                                    <input type="color" id="" name="color-scheme">
+                                </label>
+                            </div>
+                        </div>   
+                </div>
+                <div class="grid-setting">
+                    <div class="display-slider-value">
+                        <span class="slider-value"></span>
                     </div>
-                </fieldset>   
-            </div>
-            <div class="grid-setting">
-                <div class="display-slider-value">
-                    <span class="slider-value"></span>
+                    <div class="slider-wrapper">
+                        <button class="decrement-slider">-</button>
+                        <input type="range" value="16" max="100" min="5" class="range-slider">
+                        <button class="increment-slider">+</button>
+                    </div>
                 </div>
-                <div class="slider-wrapper">
-                    <button class="decrement-slider">-</button>
-                    <input type="range" value="16" max="100" min="5" class="range-slider">
-                    <button class="increment-slider">+</button>
-                </div>
-            </div>
-            <div class="reset">
-                <button class="reset-btn">reset</button>
-                <button class="erase">erase</button>
-            </div>    
+                <div class="reset">
+                    <button class="reset-btn">reset</button>
+                    <button class="erase">erase</button>
+                </div>    
+            </fieldset>
+            
     </aside>
     <div class="right-panel">
         <div class="parent"></div>
