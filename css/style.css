@@ -12,3 +12,27 @@ body{
 h1{
     font-size: 3rem;
 }
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 85%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.hero-text{
+    
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    border: solid 1px red;
+    border-radius: 1.2rem;
+    padding: 2rem;
+   
+}
