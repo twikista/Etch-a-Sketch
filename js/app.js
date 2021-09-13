@@ -43,4 +43,11 @@ function applyGreyscaleColors() {
   return greyscaleColor;
 }
 
+//add mouseover event to change grid colors using event delegation
+parent.addEventListener("mouseover", (e) => {
+  const target = e.target;
+  if (!target.classList.contains("grid")) return;
+  target.style.backgroundColor = applyGreyscaleColors();
+});
+
 sketchPad();
