@@ -33,4 +33,14 @@ function gridLayout(columnGrid, rowGrid) {
   parent.style.cssText = `display:grid;grid-template-columns:repeat(${columnGrid}, 1fr); grid-template-rows:repeat(${rowGrid}, 1fr)`;
 }
 
+function applyGreyscaleColors() {
+  //array that holds greyscale colors
+  const greyscaleColors = ["rgb(169,169,169)", "rgb(40,40,40)"];
+  //generate random numbers that lies within the index of greyscaleColors array
+  const randomNumber = Math.floor(Math.random() * greyscaleColors.length);
+  //randomly select a color from greyscaleColors array
+  const greyscaleColor = greyscaleColors[randomNumber];
+  return greyscaleColor;
+}
+
 sketchPad();
