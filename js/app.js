@@ -28,4 +28,9 @@ function createDefaultGrid() {
   customGrid = defaultGrid;
 }
 
+//function that layout the sketch pad divs
+function gridLayout(columnGrid, rowGrid) {
+  parent.style.cssText = `display:grid;grid-template-columns:repeat(${columnGrid}, 1fr); grid-template-rows:repeat(${rowGrid}, 1fr)`;
+}
+
 sketchPad();
