@@ -33,21 +33,21 @@ function gridLayout(columnGrid, rowGrid) {
   parent.style.cssText = `display:grid;grid-template-columns:repeat(${columnGrid}, 1fr); grid-template-rows:repeat(${rowGrid}, 1fr)`;
 }
 
-function applyGreyscaleColors() {
+function applyBlackColor() {
   //array that holds greyscale colors
-  const greyscaleColors = ["rgb(169,169,169)", "rgb(40,40,40)"];
+  const black = "rgb(40,40,40)";
   //generate random numbers that lies within the index of greyscaleColors array
-  const randomNumber = Math.floor(Math.random() * greyscaleColors.length);
+  // const randomNumber = Math.floor(Math.random() * greyscaleColors.length);
   //randomly select a color from greyscaleColors array
-  const greyscaleColor = greyscaleColors[randomNumber];
-  return greyscaleColor;
+  // const greyscaleColor = greyscaleColors[randomNumber];
+  return black;
 }
 
 //add mouseover event to change grid colors using event delegation
 parent.addEventListener("mouseover", (e) => {
   const target = e.target;
   if (!target.classList.contains("grid")) return;
-  target.style.backgroundColor = applyGreyscaleColors();
+  target.style.backgroundColor = applyBlackColor();
 });
 
 sketchPad();
