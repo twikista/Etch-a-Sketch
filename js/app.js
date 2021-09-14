@@ -16,6 +16,7 @@ function sketchPad() {
   createDefaultGrid();
   sliderCustomGrid();
   btnCustomGrid();
+  resetGrid();
 }
 
 //function that creates default number of divs in the sketch pad
@@ -35,8 +36,7 @@ function sliderCustomGrid() {
   slider.addEventListener("change", (e) => {
     customGrid = e.target.value;
     sliderValue.textContent = `${customGrid} x ${customGrid}`;
-    console.log(customGrid);
-    removeDefaultGrid();
+    removeExistingGrid();
     for (let i = 1; i <= customGrid ** 2; i++) {
       let div = document.createElement("div");
       // div.className = `div-${i}`;
@@ -44,7 +44,6 @@ function sliderCustomGrid() {
       parent.append(div);
     }
     gridLayout(customGrid, customGrid);
-    console.log(customGrid);
   });
 }
 
@@ -57,7 +56,7 @@ function btnCustomGrid() {
         slider.value--;
         customGrid = slider.value;
         sliderValue.textContent = `${customGrid} x ${customGrid}`;
-        removeDefaultGrid();
+        removeExistingGrid();
         for (let i = 1; i <= customGrid ** 2; i++) {
           let div = document.createElement("div");
           // div.className = `div-${i}`;
@@ -70,7 +69,7 @@ function btnCustomGrid() {
         slider.value++;
         customGrid = slider.value;
         sliderValue.textContent = `${customGrid} x ${customGrid}`;
-        removeDefaultGrid();
+        removeExistingGrid();
         for (let i = 1; i <= customGrid ** 2; i++) {
           let div = document.createElement("div");
           // div.className = `div-${i}`;
@@ -82,15 +81,12 @@ function btnCustomGrid() {
         break;
     }
     gridLayout(customGrid, customGrid);
-    console.log(customGrid);
-
-    console.log(slider.value);
   });
 }
 
 //remove existing grids prior to creating new grids
 
-function removeDefaultGrid() {
+function removeExistingGrid() {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
@@ -99,6 +95,17 @@ function removeDefaultGrid() {
 //function that layout the sketch pad divs
 function gridLayout(columnGrid, rowGrid) {
   parent.style.cssText = `display:grid;grid-template-columns:repeat(${columnGrid}, 1fr); grid-template-rows:repeat(${rowGrid}, 1fr)`;
+}
+
+//create a function that resets grid when reset button is clicked
+function resetGrid() {
+  const resetBtn = document.querySelector(".reset-btn");
+  resetBtn.addEventListener("click", (e) => {
+    console.log("Hey");
+    removeExistingGrid();
+    createDefaultGrid();
+    slider.value = customGrid;
+  });
 }
 
 function applyBlackColor() {
