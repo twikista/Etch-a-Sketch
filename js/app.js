@@ -14,6 +14,8 @@ let customGrid = 0;
 //function that implemements the functionalities of the sketch pad
 function sketchPad() {
   createDefaultGrid();
+  sliderCustomGrid();
+  btnCustomGrid();
 }
 
 //function that creates default number of divs in the sketch pad
@@ -26,6 +28,72 @@ function createDefaultGrid() {
   }
   gridLayout(defaultGrid, defaultGrid);
   customGrid = defaultGrid;
+}
+
+//create custome grid using slider values
+function sliderCustomGrid() {
+  slider.addEventListener("change", (e) => {
+    customGrid = e.target.value;
+    sliderValue.textContent = `${customGrid} x ${customGrid}`;
+    console.log(customGrid);
+    removeDefaultGrid();
+    for (let i = 1; i <= customGrid ** 2; i++) {
+      let div = document.createElement("div");
+      // div.className = `div-${i}`;
+      div.className = `grid`;
+      parent.append(div);
+    }
+    gridLayout(customGrid, customGrid);
+    console.log(customGrid);
+  });
+}
+
+//increase or decrease gris using buttons
+function btnCustomGrid() {
+  sliderBtn.addEventListener("click", (e) => {
+    const target = e.target;
+    switch (target.className) {
+      case "decrement-slider":
+        slider.value--;
+        customGrid = slider.value;
+        sliderValue.textContent = `${customGrid} x ${customGrid}`;
+        removeDefaultGrid();
+        for (let i = 1; i <= customGrid ** 2; i++) {
+          let div = document.createElement("div");
+          // div.className = `div-${i}`;
+          div.className = `grid`;
+          parent.append(div);
+          // console.log(slider.value);
+        }
+        break;
+      case "increment-slider":
+        slider.value++;
+        customGrid = slider.value;
+        sliderValue.textContent = `${customGrid} x ${customGrid}`;
+        removeDefaultGrid();
+        for (let i = 1; i <= customGrid ** 2; i++) {
+          let div = document.createElement("div");
+          // div.className = `div-${i}`;
+          div.className = `grid`;
+          parent.append(div);
+          // console.log(slider.value);
+        }
+
+        break;
+    }
+    gridLayout(customGrid, customGrid);
+    console.log(customGrid);
+
+    console.log(slider.value);
+  });
+}
+
+//remove existing grids prior to creating new grids
+
+function removeDefaultGrid() {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
 }
 
 //function that layout the sketch pad divs

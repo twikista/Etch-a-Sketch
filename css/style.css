@@ -71,7 +71,15 @@ fieldset legend{
 
 .parent{
     width: 100%;
+    min-width: 15rem;
     height: 70vh;
     border-radius: 0.6rem;
     border: solid red 0.2rem;
+}
+
+@media(max-width:25rem){
+    .parent{
+        height: 60vh;
+    }
+
 }
