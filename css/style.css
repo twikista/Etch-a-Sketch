@@ -43,7 +43,8 @@ main{
     display: grid;
     align-items: stretch;
     justify-content: center;
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr;
+    width: 300px;
 }
 
 fieldset{
@@ -67,14 +68,16 @@ fieldset legend{
     align-items: center;
     justify-content: center;
     padding: 1rem 1rem 1rem 1rem;
+    width: 500px;
 }
 
 .parent{
     width: 100%;
-    min-width: 15rem;
+    /* min-width: 15rem; */
     height: 70vh;
     border-radius: 0.6rem;
     border: solid red 0.2rem;
+    cursor: pointer;
 }
 
 @media(max-width:25rem){

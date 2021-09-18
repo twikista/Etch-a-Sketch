@@ -9,7 +9,8 @@ const sliderBtn = document.querySelector(".slider-wrapper");
 //set the value of default grid
 const defaultGrid = 16;
 // define custom grid
-let customGrid = 0;
+let customGrid = null;
+let color = "null";
 
 //function that implemements the functionalities of the sketch pad
 function sketchPad() {
@@ -29,6 +30,7 @@ function createDefaultGrid() {
   }
   gridLayout(defaultGrid, defaultGrid);
   customGrid = defaultGrid;
+  pickColor();
 }
 
 //create custome grid using slider values
@@ -39,11 +41,11 @@ function sliderCustomGrid() {
     removeExistingGrid();
     for (let i = 1; i <= customGrid ** 2; i++) {
       let div = document.createElement("div");
-      // div.className = `div-${i}`;
       div.className = `grid`;
       parent.append(div);
     }
     gridLayout(customGrid, customGrid);
+    pickColor();
   });
 }
 
@@ -59,10 +61,8 @@ function btnCustomGrid() {
         removeExistingGrid();
         for (let i = 1; i <= customGrid ** 2; i++) {
           let div = document.createElement("div");
-          // div.className = `div-${i}`;
           div.className = `grid`;
           parent.append(div);
-          // console.log(slider.value);
         }
         break;
       case "increment-slider":
@@ -72,15 +72,14 @@ function btnCustomGrid() {
         removeExistingGrid();
         for (let i = 1; i <= customGrid ** 2; i++) {
           let div = document.createElement("div");
-          // div.className = `div-${i}`;
           div.className = `grid`;
           parent.append(div);
-          // console.log(slider.value);
         }
 
         break;
     }
     gridLayout(customGrid, customGrid);
+    pickColor();
   });
 }
 
@@ -97,32 +96,81 @@ function gridLayout(columnGrid, rowGrid) {
   parent.style.cssText = `display:grid;grid-template-columns:repeat(${columnGrid}, 1fr); grid-template-rows:repeat(${rowGrid}, 1fr)`;
 }
 
-//create a function that resets grid when reset button is clicked
+//create a function that resets sketch pad grids to default when reset button is clicked
 function resetGrid() {
   const resetBtn = document.querySelector(".reset-btn");
   resetBtn.addEventListener("click", (e) => {
-    console.log("Hey");
     removeExistingGrid();
     createDefaultGrid();
+    removeRandomColor();
+    pickColor();
     slider.value = customGrid;
   });
 }
 
-function applyBlackColor() {
-  //array that holds greyscale colors
-  const black = "rgb(40,40,40)";
-  //generate random numbers that lies within the index of greyscaleColors array
-  // const randomNumber = Math.floor(Math.random() * greyscaleColors.length);
-  //randomly select a color from greyscaleColors array
-  // const greyscaleColor = greyscaleColors[randomNumber];
-  return black;
+function eraseGridColor() {
+  const eraseBtn = document.querySelector(".erase-btn");
+  eraseBtn.addEventListener("click", (e) => {
+    removeRandomColor();
+    color = "transparent";
+    return color;
+  });
+}
+
+function removeRandomColor() {
+  if (random.classList.contains("rgb")) {
+    random.classList.remove("rgb");
+  }
+}
+
+function pickColor() {
+  const colorPicker = document.querySelector("#color-picker");
+  color = colorPicker.value;
+  colorPicker.addEventListener("change", (e) => {
+    removeRandomColor();
+    color = colorPicker.value;
+    console.log(color);
+    return color;
+  });
+}
+
+const random = document.querySelector(".random");
+
+function addRGBClass() {
+  random.addEventListener("click", (e) => {
+    const target = e.target;
+    target.classList.add("rgb");
+    console.log(target);
+  });
+}
+
+addRGBClass();
+
+function rgbColors() {
+  const randomR = Math.floor(Math.random() * 256);
+  const randomG = Math.floor(Math.random() * 256);
+  const randomB = Math.floor(Math.random() * 256);
+  color = `rgb(${randomR},${randomG},${randomB})`;
+  console.log(color);
+  return color;
+}
+
+function randomRgbColors() {
+  if (random.classList.contains("rgb")) {
+    color = rgbColors();
+  }
+  return color;
 }
 
 //add mouseover event to change grid colors using event delegation
 parent.addEventListener("mouseover", (e) => {
   const target = e.target;
   if (!target.classList.contains("grid")) return;
-  target.style.backgroundColor = applyBlackColor();
+  randomRgbColors();
+  target.style.backgroundColor = color;
+  console.log(color);
 });
 
 sketchPad();
+eraseGridColor();
+pickColor();
