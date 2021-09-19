@@ -49,7 +49,7 @@ function sliderCustomGrid() {
   });
 }
 
-//increase or decrease gris using buttons
+//increase or decrease sketch pad grids using buttons
 function btnCustomGrid() {
   sliderBtn.addEventListener("click", (e) => {
     const target = e.target;
