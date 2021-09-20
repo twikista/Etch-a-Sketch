@@ -10,7 +10,7 @@ const sliderBtn = document.querySelector(".slider-wrapper");
 const defaultGrid = 16;
 // define custom grid
 let customGrid = null;
-let color = "null";
+let color = null;
 
 //function that implemements the functionalities of the sketch pad
 function sketchPad() {

@@ -22,10 +22,15 @@
         <aside class="left-panel">
             <div class="left-panel-content">
                 <div class="color-setting">
+                    <div class="color-tools-heading">
+                        Color Tools
+                    </div>
                     <div class="colors-schemes">
-                        <span>choose a color scheme</span>
+                        <!-- <span>choose a color scheme</span> -->
                         <div class="choose-color">
-                            <span>pick a color</span><input type="color" id="color-picker" name="color-sheme">
+                            <div class="pick-color">
+                                <input data-tooltip ="click to pick a color" type="color" id="color-picker" name="color-sheme">
+                            </div>
                             <button class="random">random</button>        
                         </div>
                         <div class="erase">
@@ -34,17 +39,23 @@
                     </div>   
                 </div>
                 <div class="grid-setting">
-                    <div class="display-slider-value">
-                        <span class="slider-value"></span>
+                    <div class="grid-tools-heading">
+                        Grid Tools
                     </div>
-                    <div class="slider-wrapper">
-                        <button class="decrement-slider">&minus;</button>
-                        <input type="range" value="16" max="60" min="1" class="range-slider">
-                        <button class="increment-slider">&plus;</button>
+                    <div class="grid-tools">
+                        <div class="slider-wrapper">
+                            <span class="slider-value"></span>
+                            <div class="slider">
+                                <button class="decrement-slider">&minus;</button>
+                                <input type="range" value="16" max="60" min="1" class="range-slider">
+                                <button class="increment-slider">&plus;</button>
+                            </div>    
+                        </div>
+                        <div class="reset">
+                            <button class="reset-btn">reset</button>
+                        </div>
                     </div>
-                    <div class="reset">
-                        <button class="reset-btn">reset</button>
-                    </div> 
+                     
                 </div>
             </div>         
         </aside>
