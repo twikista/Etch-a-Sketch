@@ -1,71 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
     <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Glory:wght@400;500;600;800&family=Lato:wght@400;700;900&family=Righteous&family=Varela+Round&display=swap" rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Glory:wght@400;500;600;800&family=Lato:wght@400;700;900&family=Righteous&family=Varela+Round&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <title>Etch</title>
 </head>
+
 <body>
-<div class="wrapper">
-    <header>
-        <div class="hero-text">
-            <h1>Sketch-Padi</h1>
-        </div>
-    </header>
-    <main>
-        <aside class="left-panel">
-            <div class="left-panel-content">
-                <div class="color-setting">
-                    <div class="color-tools-heading">
-                        Color Tools
-                    </div>
-                    <div class="colors-schemes">
-                        <!-- <span>choose a color scheme</span> -->
-                        <div class="choose-color">
-                            <div class="pick-color">
-                                <input data-tooltip ="click to pick a color" type="color" id="color-picker" name="color-sheme">
+    <div class="wrapper">
+        <header>
+            <div class="hero-text">
+                <h1>Sketch-Padi</h1>
+            </div>
+        </header>
+        <main>
+            <div class="sketch-pad-container">
+                <div class="sketch-pad"></div>
+                <div class="sketch-pad-tools">
+                    <div class="color-tools">
+                        <input data-tooltip="click to pick a color" type="color" id="color-picker" name="color-picker" class="color-tools-btn">
+                        <label for="color-picker" class="color-picker-label">
+                            <i class="fas fa-palette fa-3x"></i>
+                            <span class="color-tools-text">pick a color</span>
+                        </label>
+                        <div class="random-color">
+                            <div class="random-icon">
+                                <span class="first colors"></span>
+                                <span class="second colors"></span>
+                                <span class="third colors"></span>
+                                <span class="fourth colors"></span>
                             </div>
-                            <button class="random">random</button>        
+                            <span class="color-tools-text">random color</span>
                         </div>
-                        <div class="erase">
-                            <button class="erase-btn">erase</button>
+                        <!-- <button class="random color-tools-btn"> -->
+                            <!-- <i class="fas fa-tint fa-3x"></i> -->
+                            
+                        <!-- </button> -->
+                        <!-- <button class="erase-btn color-tools-btn">erase</button> -->
+                        <div class="eraser">
+                            <div class="erase-btn">
+                                <span></span>
+                            </div>
+                            <span class="color-tools-text">eraser</span>
                         </div>
-                    </div>   
-                </div>
-                <div class="grid-setting">
-                    <div class="grid-tools-heading">
-                        Grid Tools
+                        
                     </div>
                     <div class="grid-tools">
-                        <div class="slider-wrapper">
-                            <span class="slider-value"></span>
-                            <div class="slider">
+                        <div class="grid-controls">
+                            <span class="display-number-of-grids"></span>
+                            <div class="slider-controls">
                                 <button class="decrement-slider">&minus;</button>
                                 <input type="range" value="16" max="60" min="1" class="range-slider">
                                 <button class="increment-slider">&plus;</button>
-                            </div>    
+                            </div>   
                         </div>
-                        <div class="reset">
-                            <button class="reset-btn">reset</button>
-                        </div>
-                    </div>
-                     
-                </div>
-            </div>         
-        </aside>
-        <div class="right-panel">
-            <div class="parent"></div>
-        </div>
+                        <div class="reset-control">
+                            <i class="fas fa-redo-alt fa-2x reset-grid-btn"></i>
+                            <span class="grid-tools-text">reset</span>
 
-    </main>
-    
-</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer">
+                <span class="made-by">Made by viro &copy; 2021</span>
+                <span class="social">
+                    <a href="https://github.com/twikista">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://github.com/twikista">
+                        <i class="fab fa-twitter"></i>
+                    </a> 
+                    <a href="https://github.com/twikista">
+                        <i class="fab fa-linkedin"></i>
+                    </a> 
+                </span>   
+            </div>
+        </main>
+
+    </div>
     <script src="js/app.js"></script>
 </body>
+
 </html>

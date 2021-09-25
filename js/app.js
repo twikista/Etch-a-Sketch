@@ -1,11 +1,11 @@
 //save the grid parent to a variable
-const parent = document.querySelector(".parent");
+const parent = document.querySelector(".sketch-pad");
 //save the range slider to a variable
 const slider = document.querySelector(".range-slider");
 //variable that dsplays the value of the range slider
-let sliderValue = document.querySelector(".slider-value");
+let sliderValue = document.querySelector(".display-number-of-grids");
 //grab the btn parent element
-const sliderBtn = document.querySelector(".slider-wrapper");
+const sliderBtn = document.querySelector(".slider-controls");
 //set the value of default grid
 const defaultGrid = 16;
 // define custom grid
@@ -98,7 +98,7 @@ function gridLayout(columnGrid, rowGrid) {
 
 //create a function that resets sketch pad grids to default when reset button is clicked
 function resetGrid() {
-  const resetBtn = document.querySelector(".reset-btn");
+  const resetBtn = document.querySelector(".reset-grid-btn");
   resetBtn.addEventListener("click", (e) => {
     removeExistingGrid();
     createDefaultGrid();
@@ -129,16 +129,17 @@ function pickColor() {
   colorPicker.addEventListener("change", (e) => {
     removeRandomColor();
     color = colorPicker.value;
+    colorPicker.style.backgroundColor = color;
     console.log(color);
     return color;
   });
 }
 
-const random = document.querySelector(".random");
+const random = document.querySelector(".random-icon");
 
 function addRGBClass() {
   random.addEventListener("click", (e) => {
-    const target = e.target;
+    const target = e.target.closest("div");
     target.classList.add("rgb");
     console.log(target);
   });
@@ -165,6 +166,7 @@ function randomRgbColors() {
 //add mouseover event to change grid colors using event delegation
 parent.addEventListener("mouseover", (e) => {
   const target = e.target;
+  console.log(target);
   if (!target.classList.contains("grid")) return;
   randomRgbColors();
   target.style.backgroundColor = color;
