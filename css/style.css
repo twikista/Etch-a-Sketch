@@ -86,7 +86,6 @@ main {
     background-color: #9e9da127;
     width: 100%;
     max-width: 560px;
-    /* flex-wrap: wrap; */
 }
 
 .color-tools{
@@ -244,11 +243,6 @@ main {
     text-align: center;
 }
 
-.slider-controls{
-    /* margin-left: 1.5rem; */
-
-}
-
 .decrement-slider,
 .increment-slider {
     padding: 0 .3rem;
@@ -294,7 +288,6 @@ main {
     padding: 0.5rem 0 0rem 0.5rem;
     font-size: 0.8rem;
     font-weight: 600;
-    /* text-align: center; */
     width: 100%;
 
 }
@@ -363,17 +356,15 @@ main {
 }
 
 .made-by{
-    /* border: 1px solid red; */
-    flex: 1;
+    flex: 1.4;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .social{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* border: 1px solid red; */
     flex: 1;
     margin-left: 1rem;
 }
@@ -440,7 +431,6 @@ main {
     
     .sketch-pad{
         height: 55vh;
-        /* min-width: 330px; */
     }
 
     .color-tools, .grid-tools{
@@ -477,13 +467,8 @@ main {
     }
 
     .decrement-slider,.increment-slider{
-        /* display:none ; */
         font-size: 0.6rem;
         padding: 0.2rem;
-    }
-
-    .range-slider{
-        /* width: 50%; */
     }
 
     .reset-control{
